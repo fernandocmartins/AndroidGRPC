@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option java_package = "protos.grpc";
+package responder;
+
+message ConnectionRequest {
+int32 userId = 2;
+}
+
+message ConnectionResponse {
+string response = 1;
+}
+
+service ResponderService {
+rpc responderConnect (stream ConnectionRequest) returns (stream ConnectionResponse) {};
+}
